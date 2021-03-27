@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import $ from "jquery";
 
 function UploadView() {
   const [name, setName] = useState("");
@@ -6,11 +7,14 @@ function UploadView() {
   const [contactNumber, setContactNumber] = useState("");
   const [date, setDate] = useState("");
 
+function uploadItem() {
+  
+}
+
   return (
     <div>
       <h1>Upload your item</h1>
-      <form action="" class="main-form">
-        <div class="form-group">
+      <div class="form-group">
           <label for="name">What's the name of your item?</label>
           <input type="text" name="name" id="name" class="form-control" />
         </div>
@@ -32,7 +36,7 @@ function UploadView() {
             class="form-control"
           />
         </div>
-      </form>
+        <button onClick={uploadItem} class="btn btn-primary">FUCK SAKE</button>
     </div>
   );
 }

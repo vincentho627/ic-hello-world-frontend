@@ -1,9 +1,7 @@
-import ItemList from '../components/ItemList';
+import ItemList from "../components/ItemList";
 
 function ItemListView() {
-  return (
-    <ItemList />
-  );
+  return <ItemList />;
 }
 
 export default ItemListView;
