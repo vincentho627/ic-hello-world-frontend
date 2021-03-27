@@ -5,17 +5,17 @@ function Item(props) {
   return (
     <div>
       <h1>
-        {props.item.name}
+        {props.name}
       </h1>
       <p>
         <span className="font-weight-bold">Contact Email:</span>
-        {props.item.contactEmail}
+        {props.contactEmail}
       </p>
       <p>
         <span className="font-weight-bold">Contact Number:</span>
-        {props.item.contactNumber}
+        {props.contactNumber}
       </p>
-      <p>{props.item.date}</p>
+      <p>{props.date}</p>
     </div>
   );
 }

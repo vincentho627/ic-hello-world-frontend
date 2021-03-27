@@ -1,54 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Item from './Item';
 
 
 function ItemList(props) {
-  const [items, setItems] = useState([
-    {
-      name: "There are no items on the list yet.",
-      contactEmail: "hello@world.com", 
-      contactNumber: "98765432",
-      date: "10/10/2020",
-      found: false
-    }, 
-    {
-      name: "There are no items on the list yet.",
-      contactEmail: "hello@world.com", 
-      contactNumber: "243984793272",
-      date: "10/10/2021",
-      found: true
-    }
-  ]);
+  const [items, setItems] = useState([]);
+  const [pageID, setPageID] = useState(1);
 
-  /*
+
   const getItems = async () => {
-    let response = await fetch(process.env.API_LINK + '/items/${page_id}');
+    let response = await fetch(`http://127.0.0.1:5000/items/${pageID}`);
+    console.log(response);
     if (response.ok) {
       var res = await response.json();
+      console.log(res);
       var resItems = await res.items;
 
-      var tmpItems = []
-      for (const resItem in resItems) {
-        tmpItems.push({
-          name: resItem.name,
-          contactEmail: resItem.contact_email,
-          contactNumber: resItem.contact_number, 
-          date: resItem.date
-        });
-      }
-
-      setItems(tmpItems);
+      console.log(resItems);
+      setItems(resItems);
     }
   };
-  */
+
+  function previousPage() {
+    setPageID(pageID - 1);
+  }
+
+  function nextPage() {
+    setPageID(pageID + 1);
+  }
+
+  useEffect(getItems, [pageID]);
+
+  var previousPageButton = null;
+
+  if (pageID - 1 > 0) {
+      previousPageButton = <button onClick={previousPage}>Previous Page</button>
+  }
 
   return (
     <div>
       {items.map(item => {
         return (
-          <Item item={item} />
+          <Item
+            id={item.id}
+            name={item.name}
+            contactEmail={item.contactEmail}
+            contactNumber={item.contactNumber}
+          />
         )
       })}
+      {previousPageButton}
+      <button onClick={nextPage}>Next Page</button>
     </div>
   );
 }

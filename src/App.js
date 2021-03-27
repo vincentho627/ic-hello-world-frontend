@@ -5,8 +5,8 @@ import UploadView from "./views/UploadView";
 
 function App() {
   return (
-    <div class="container">
-      <div class="page-header">
+    <div className="container">
+      <div className="page-header">
         <h1>WhereThe</h1>
         <Router>
           <Switch>
