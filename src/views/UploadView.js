@@ -22,7 +22,6 @@ function UploadView() {
 
     const formData = new FormData();
     formData.append("image", image[0]);
-
     formData.append("contactEmail", contactEmail);
     formData.append("contactNumber", contactNumber);
     formData.append("name", name);
