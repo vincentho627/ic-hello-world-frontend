@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import Item from './Item';
-
+import React, { useState, useEffect } from "react";
+import Item from "./Item";
 
 function ItemList(props) {
   const [items, setItems] = useState([]);
   const [pageID, setPageID] = useState(1);
-
 
   const getItems = async () => {
     let response = await fetch(`http://127.0.0.1:5000/items/${pageID}`);
@@ -30,26 +28,40 @@ function ItemList(props) {
 
   useEffect(getItems, [pageID]);
 
-  var previousPageButton = null;
+  var previousPageButton = "page-item";
 
-  if (pageID - 1 > 0) {
-      previousPageButton = <button onClick={previousPage}>Previous Page</button>
+  if (pageID - 1 <= 0) {
+    previousPageButton += " disabled";
   }
 
   return (
     <div>
-      {items.map(item => {
+      {items.map((item) => {
         return (
           <Item
             id={item.id}
             name={item.name}
+            date={item.date}
             contactEmail={item.contactEmail}
             contactNumber={item.contactNumber}
           />
-        )
+        );
       })}
-      {previousPageButton}
-      <button onClick={nextPage}>Next Page</button>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class={previousPageButton}>
+            <a class="page-link" onClick={previousPage}>
+              Previous
+            </a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" onClick={nextPage}>
+              Next
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
