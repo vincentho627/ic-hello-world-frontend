@@ -42,6 +42,7 @@ function ItemList(props) {
             id={item.id}
             name={item.name}
             date={item.date}
+            lastSeenLocation={item.lastSeenLocation}
             contactEmail={item.contactEmail}
             contactNumber={item.contactNumber}
           />
