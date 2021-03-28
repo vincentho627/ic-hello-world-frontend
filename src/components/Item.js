@@ -28,6 +28,9 @@ function Item(props) {
               <br />
               Details:&nbsp;
               {props.details}
+              <br />
+              Category:&nbsp;
+              {props.lostOrFound}
             </p>
           </div>
         </div>

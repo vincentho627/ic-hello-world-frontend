@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import Swal from 'sweetalert2';
 
 function Navbar(props) {
 
@@ -8,7 +9,15 @@ function Navbar(props) {
     // console.log(keywords);
     // let response = await fetch(`http://127.0.0.1:5000/search/${keywords}`);
     // console.log(response.json());
-    window.location.pathname = `/search/${keywords}`;
+    if (keywords !== "") {
+      window.location.pathname = `/search/${keywords}`;
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Cannot search with empty body",
+      });
+    }
   }
 
 
