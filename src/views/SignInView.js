@@ -1,11 +1,4 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Link,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import $ from "jquery";
 import Swal from "sweetalert2";
