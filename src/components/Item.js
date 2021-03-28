@@ -7,7 +7,7 @@ function Item(props) {
         <div className="col-sm-4">
           <img
             className="card-img-top"
-            src="https://picsum.photos/200/100"
+            src={`data:image/png;base64,${props.image}`}
             alt="Card image cap"
           ></img>
         </div>

@@ -10,11 +10,13 @@ function ItemList(props) {
     console.log(response);
     if (response.ok) {
       var res = await response.json();
-      console.log(res);
-      var resItems = await res.items;
+      if (res.success) {
+        console.log(res);
+        var resItems = await res.items;
 
-      console.log(resItems);
-      setItems(resItems);
+        console.log(resItems);
+        setItems(resItems);
+      }
     }
   };
 
@@ -45,6 +47,7 @@ function ItemList(props) {
             lastSeenLocation={item.lastSeenLocation}
             contactEmail={item.contactEmail}
             contactNumber={item.contactNumber}
+            image={item.image}
           />
         );
       })}
