@@ -1,7 +1,15 @@
 import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Link,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import SignUpView from "./SignUpView";
 
 function SignInView() {
   const [username, setUsername] = useState("");
@@ -12,7 +20,6 @@ function SignInView() {
   const redirect = () => {
     history.push("/");
   };
-
 
   async function signInUser() {
     var username = $("#username")[0].value;
@@ -81,6 +88,9 @@ function SignInView() {
       <button onClick={signInUser} className="btn btn-primary">
         Sign In
       </button>
+      <a className="nav-item" href="/signup">
+        Don't have an account? Sign up for one!
+      </a>
     </div>
   );
 }
