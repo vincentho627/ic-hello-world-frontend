@@ -16,23 +16,28 @@ h1 {
 }
 
 .navbar-brand {
-  padding: 20px;
+  padding: 10px 30px;
 }
 
 .form-control {
-  width: 100%;
-  padding: 5px 15px;
-  font-size: 15px;
-  color: #fff !important;
-  border: 1px solid #fff;
-  border-radius: 24px;
-  outline: none;
-  background: transparent;
-}
+    width: 100%;
+    padding: 5px 15px;
+    font-size: 15px;
+    color: #fff !important;
+    border: 1px solid #fff;
+    border-radius: 24px;
+    outline: none;
+    background: transparent;
+  }
+  
+  .form-control:focus {
+    background: transparent;
+  }
 
-.form-control:focus {
-  background: transparent;
-}
+  .form-inline {
+      display: flex;
+      padding: 10px 30px;
+  }
 
 .form-group {
   margin-bottom: 20px;
@@ -41,11 +46,8 @@ h1 {
 .card {
   margin-top: 20px;
   margin-bottom: 30px;
-  background: transparent;
-  border: 1px solid #fff;
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-
+  background: rgba(255, 255, 255, 0.2);
+  
 }
 
 .signin-box,
