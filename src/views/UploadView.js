@@ -6,6 +6,7 @@ function UploadView() {
   const [name, setName] = useState("");
   const [contactEmail, setContactEmail] = useState("");
   const [contactNumber, setContactNumber] = useState("");
+  const [lastSeenLocation, setLastSeenLocation] = useState("");
   const [date, setDate] = useState("");
   const [image, setImage] = useState("");
   const [imageShow, setImageShow] = useState("");
@@ -14,8 +15,9 @@ function UploadView() {
     var name = $("#name")[0].value;
     var contactEmail = $("#contactEmail")[0].value;
     var contactNumber = $("#contactNumber")[0].value;
+    var lastSeenLocation = $("#lastSeenLocation")[0].value;
 
-    if (name == "" || contactEmail == "" || contactNumber == "") {
+    if (name == "" || contactEmail == "" || contactNumber == "" || lastSeenLocation == "") {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -26,6 +28,7 @@ function UploadView() {
 
     const formData = new FormData();
     formData.append("image", image[0]);
+    formData.append("lastSeenLocation", lastSeenLocation);
     formData.append("contactEmail", contactEmail);
     formData.append("contactNumber", contactNumber);
     formData.append("name", name);
@@ -44,6 +47,7 @@ function UploadView() {
         $("#name")[0].value = "";
         $("#contactEmail")[0].value = "";
         $("#contactNumber")[0].value = "";
+        $("#lastSeenLocation")[0].value = "";
         setImageShow("");
         setImage("");
         await Swal.fire({
@@ -101,7 +105,16 @@ function UploadView() {
           required
         />
       </div>
-
+      <div className="form-group">
+        <label htmlFor="lastSeenLocation">Where did you find this item?</label>
+        <input
+          type="text"
+          name="lastSeenLocation"
+          id="lastSeenLocation"
+          className="form-control"
+          required
+        />
+      </div>
       <div className="form-group">
         <label htmlfor="image">Upload an image</label>
         <input
