@@ -82,6 +82,11 @@ function SignInView() {
       <button onClick={signInUser} className="btn btn-outline-light">
         Sign In
       </button>
+      <div className="form-group">
+        <a className="link-secondary" href="/signup">
+          Or, sign up for an account now!
+        </a>
+      </div>
     </div>
   );
 }
