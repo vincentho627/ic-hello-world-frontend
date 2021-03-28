@@ -23,7 +23,7 @@ function App() {
     <div className="container">
       <div className="page-header">
         <Router>
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
             <a class="navbar-brand" href="/">
               WhereThe
             </a>
@@ -58,7 +58,7 @@ function App() {
                   placeholder="What are you looking for?"
                 />
                 <button
-                  class="btn btn-outline-success my-2 my-sm-0"
+                  class="btn btn-outline-light my-2 my-sm-0"
                   type="submit"
                 >
                   Search

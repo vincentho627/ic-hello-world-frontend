@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function Item(props) {
   return (
-    <div className="card mb-3 p-3">
+    <div className="card p-3">
       <div className="row no-gutters">
         <div className="col-sm-4">
           <img
