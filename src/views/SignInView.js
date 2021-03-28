@@ -1,10 +1,17 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import $ from "jquery";
 import Swal from "sweetalert2";
 
 function SignInView() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  let history = useHistory();
+
+  const redirect = () => {
+    history.push("/");
+  };
 
   async function signInUser() {
     var username = $("#username")[0].value;
@@ -31,18 +38,17 @@ function SignInView() {
     if (response.ok) {
       var json_data = await response.json();
       if (json_data.success) {
-        $("#username")[0].value = "";
-        $("#password")[0].value = "";
+        redirect();
         await Swal.fire({
           icon: "success",
-          title: "Welcome to WhereThe!",
-          text: "Happy surfing!",
+          title: "Welcome back to WhereThe!",
+          text: "Happy hunting!",
         });
       } else {
         await Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Something went wrong!",
+          text: json_data.error,
         });
       }
     }
