@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import $ from "jquery";
 import Swal from "sweetalert2";
-import SignUpView from "./SignUpView";
 
 function SignInView() {
   const [username, setUsername] = useState("");

@@ -33,7 +33,7 @@ function App() {
               </ul>
             </div>
             <div className="mx-auto order-0">
-              <a className="navbar-brand mx-auto" href="#">
+              <a className="navbar-brand mx-auto" href="/">
                 WhereThe
               </a>
               <button
