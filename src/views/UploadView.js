@@ -110,6 +110,7 @@ function UploadView() {
         $("#contactEmail")[0].value = "";
         $("#contactNumber")[0].value = "";
         $("#lastSeenLocation")[0].value = "";
+        $("#details")[0].value = "";
         setImageShow("");
         setImage("");
         await Swal.fire({
@@ -168,7 +169,7 @@ function UploadView() {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="lastSeenLocation">Where did you find this item?</label>
+        <label htmlFor="lastSeenLocation">Where did you find/last seen this item?</label>
         <input
           type="text"
           name="lastSeenLocation"
