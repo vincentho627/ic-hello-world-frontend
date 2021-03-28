@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ItemListView from "./views/ItemListView";
+import SearchListView from "./views/SearchListView";
 import SignInView from "./views/SignInView";
 import SignUpView from "./views/SignUpView";
 import UploadView from "./views/UploadView";
 import "./App.css";
+import $ from 'jquery';
+import Navbar from './components/Navbar';
 
 function App() {
   const [currUsername, setCurrUsername] = useState("");
@@ -20,70 +23,32 @@ function App() {
   useEffect(getCurrUsername, []);
 
   return (
-    <div className="container">
-      <div className="page-header">
-        <Router>
-          <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">
-              WhereThe
-            </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="/upload">
-                    Upload an Item
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a class="nav-link" href="/signin">
-                    {currUsername}
-                  </a>
-                </li>
-              </ul>
-              <form class="form-inline my-2 my-lg-0" method="GET" action="/search/">
-                <input
-                  class="form-control me-sm-2"
-                  type="search"
-                  placeholder="What are you looking for?"
-                />
-                <button
-                  class="btn btn-outline-light my-2 my-sm-0"
-                  type="submit"
-                >
-                  Search
-                </button>
-              </form>
-            </div>
-          </nav>
-
-          <Switch>
-            <Route exact path="/">
-              <ItemListView />
-            </Route>
-            <Route path="/upload">
-              <UploadView />
-            </Route>
-            <Route path="/signup">
-              <SignUpView />
-            </Route>
-            <Route path="/signin">
-              <SignInView />
-            </Route>
-          </Switch>
-        </Router>
+    <div>
+      <Navbar currUsername={currUsername} />
+      <div className="container">
+        <div className="page-header">
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <ItemListView />
+              </Route>
+              <Route path="/upload">
+                <UploadView />
+              </Route>
+              <Route path="/search/:items" children={<SearchListView />}>
+              </Route>
+              <Route path="/signup">
+                <SignUpView />
+              </Route>
+              <Route path="/signin">
+                <SignInView />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
       </div>
     </div>
+
   );
 }
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function Item(props) {
   return (
-    <div className="card p-3">
+    <div className="card p-3 color-white">
       <div className="row no-gutters">
         <div className="col-sm-4">
           <img
@@ -17,13 +17,17 @@ function Item(props) {
             <p className="card-subtitle mb-2">{props.date}</p>
             <p className="card-text m-0">
               Last Seen Location:&nbsp;
-              <a href={"https://maps.google.com/q?=" + props.lastSeenLocation}>{props.lastSeenLocation}</a>
+              {/* <a href={"https://maps.google.com/q?=" + props.lastSeenLocation}>{props.lastSeenLocation}</a> */}
+              {props.lastSeenLocation}
               <br />
               Contact Email:&nbsp;
               {props.contactEmail}
               <br />
               Contact Name:&nbsp;
               {props.contactNumber}
+              <br />
+              Details:&nbsp;
+              {props.details}
             </p>
           </div>
         </div>

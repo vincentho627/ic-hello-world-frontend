@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
+import Swal from "sweetalert2";
+
 
 function ItemList(props) {
   const [items, setItems] = useState([]);
   const [pageID, setPageID] = useState(1);
 
   const getItems = async () => {
-    let response = await fetch(`http://127.0.0.1:5000/items/${pageID}`);
+    var response;
+    console.log(props.search);
+    if (props.search !== null) {
+      response = await fetch(`http://127.0.0.1:5000/search/${props.search}`);
+    } else {
+      response = await fetch(`http://127.0.0.1:5000/lost-items/${pageID}`);
+    }
     console.log(response);
     if (response.ok) {
       var res = await response.json();
@@ -16,6 +24,15 @@ function ItemList(props) {
 
         console.log(resItems);
         setItems(resItems);
+
+        if (resItems.length == 0) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "No results found",
+          });
+          return;
+        }
       }
     }
   };
@@ -41,13 +58,14 @@ function ItemList(props) {
       {items.map((item) => {
         return (
           <Item
-            id={item.id}
+            key={item.id}
             name={item.name}
             date={item.date}
             lastSeenLocation={item.lastSeenLocation}
             contactEmail={item.contactEmail}
             contactNumber={item.contactNumber}
             image={item.image}
+            details={item.details}
           />
         );
       })}

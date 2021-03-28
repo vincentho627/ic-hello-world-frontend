@@ -1,7 +1,7 @@
 import ItemList from "../components/ItemList";
 
 function ItemListView() {
-  return <ItemList />;
+  return <ItemList search={null}/>;
 }
 
 export default ItemListView;
