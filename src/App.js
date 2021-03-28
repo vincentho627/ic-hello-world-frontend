@@ -4,12 +4,13 @@ import ItemListView from "./views/ItemListView";
 import SignInView from "./views/SignInView";
 import SignUpView from "./views/SignUpView";
 import UploadView from "./views/UploadView";
+import './App.css';
 
 function App() {
   return (
     <div className="container">
       <div className="page-header">
-        <h2 className="border-bottom p-3 mb-5">WhereThe</h2>
+        <h2 className="app-title border-bottom p-3 mb-5">WhereThe</h2>
         <Router>
           <Switch>
             <Route exact path="/">

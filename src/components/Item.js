@@ -11,16 +11,15 @@ function Item(props) {
             alt="Card image cap"
           ></img>
         </div>
-        <div class="col-sm-8">
+        <div className="col-sm-8">
           <div className="card-body">
-            <h5 className="card-title font-weight-bold">{props.name}</h5>
-            <p className="card-subtitle mb-2 text-muted">{props.date}</p>
+            <h5 className="card-title">{props.name}</h5>
+            <p className="card-subtitle mb-2">{props.date}</p>
             <p className="card-text m-0">
-              <span className="font-weight-bold">Contact Email: </span>
+              Contact Email:
               {props.contactEmail}
-            </p>
-            <p className="card-text">
-              <span className="font-weight-bold">Contact Name: </span>
+              <br />
+              Contact Name:
               {props.contactNumber}
             </p>
           </div>

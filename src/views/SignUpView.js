@@ -49,29 +49,32 @@ function SignUpView() {
   }
 
   return (
-    <div>
+    <div className="signup-box">
       <h1>Create your account</h1>
       <div className="form-group">
-        <label htmlFor="username">Set a username: </label>
+        <label htmlFor="username">Username</label>
         <input
           type="text"
           name="username"
           id="username"
+          placeholder="Username"
           className="form-control"
           required
         />
       </div>
       <div className="form-group">
-        <label htmlFor="password">Set a password: </label>
+        <label htmlFor="password">Password</label>
         <input
           type="text"
           name="password"
           id="password"
+          placeholder="Password"
           className="form-control"
           required
         />
       </div>
-      <button onClick={createUser} className="btn btn-primary">
+      
+      <button onClick={createUser} className="btn btn-outline-light">
         Sign Up
       </button>
     </div>

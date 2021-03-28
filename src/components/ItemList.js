@@ -47,16 +47,15 @@ function ItemList(props) {
           />
         );
       })}
-
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-          <li class={previousPageButton}>
-            <a class="page-link" onClick={previousPage}>
+      <nav aria-label="Page navigation">
+        <ul className="pagination justify-content-center">
+          <li className={previousPageButton}>
+            <a className="page-link" onClick={previousPage}>
               Previous
             </a>
           </li>
-          <li class="page-item">
-            <a class="page-link" onClick={nextPage}>
+          <li className="page-item">
+            <a className="page-link" onClick={nextPage}>
               Next
             </a>
           </li>
