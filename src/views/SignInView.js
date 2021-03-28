@@ -58,7 +58,7 @@ function SignInView() {
     <div className="signin-box">
       <h1>Sign In</h1>
       <div className="form-group">
-        <label htmlFor="username">Set a username</label>
+        <label htmlFor="username">Enter your username</label>
         <input
           type="text"
           name="username"
@@ -69,7 +69,7 @@ function SignInView() {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="password">Set a password</label>
+        <label htmlFor="password">Enter your password</label>
         <input
           type="text"
           name="password"

@@ -16,10 +16,13 @@ function Item(props) {
             <h5 className="card-title">{props.name}</h5>
             <p className="card-subtitle mb-2">{props.date}</p>
             <p className="card-text m-0">
-              Contact Email:
+              Last Seen Location:&nbsp;
+              <a href={"https://maps.google.com/q?=" + props.lastSeenLocation}>{props.lastSeenLocation}</a>
+              <br />
+              Contact Email:&nbsp;
               {props.contactEmail}
               <br />
-              Contact Name:
+              Contact Name:&nbsp;
               {props.contactNumber}
             </p>
           </div>
